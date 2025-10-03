@@ -1,0 +1,24 @@
+<h2>Available Products</h2>
+
+{{#if showDiscount}}
+    <p style="color: red;">Special discount available today!</p>
+{{/if}}
+
+{{#if products}}
+    {{#each products}}
+        <div class="product">
+            <h3>{{uppercase name}}</h3>
+            <p>Price: ${{price}}</p>
+            
+            {{#if inStock}}
+                <span class="in-stock">✓ In Stock</span>
+            {{else}}
+                <span class="out-of-stock">✗ Out of Stock</span>
+            {{/if}}
+        </div>
+    {{/each}}
+{{else}}
+    <p>No products available.</p>
+{{/if}}
+
+<h3>Total Products: {{products.length}}</h3>
