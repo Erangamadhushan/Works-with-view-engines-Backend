@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    title= title
+    style.
+      body { font-family: Arial; margin: 20px; }
+      table { border-collapse: collapse; width: 100%; }
+      th, td { border: 1px solid #ddd; padding: 8px; }
+      th { background-color: #4CAF50; color: white; }
+      .active { color: green; }
+      .inactive { color: red; }
+  body
+    h1= message
+    
+    //- Conditional rendering
+    if users.length > 0
+      h2 User List (#{users.length} users)
+      table
+        tr
+          th Name
+          th Age
+          th Email
+          th Status
+        //- Loop through users
+        each user in users
+          tr
+            td= user.name
+            td= user.age
+            td= user.email
+            td(class=user.active ? 'active' : 'inactive')
+              = user.active ? 'Active' : 'Inactive'
+    else
+      p No users found.
+    
+    //- Mixins (reusable components)
+    mixin userCard(user)
+      .card
+        h3= user.name
+        p Age: #{user.age}
+        p Email: #{user.email}
+    
+    h2 User Cards
+    each user in users
+      +userCard(user)
