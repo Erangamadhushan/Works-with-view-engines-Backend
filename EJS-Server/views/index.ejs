@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align:left;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1><%= message %></h1>
+    
+        <!-- Conditional rendering -->
+        <% if (users.length > 0) { %>
+            <h2>User List</h2>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                </tr>
+                <!-- Loop through users -->
+                <% users.forEach(user => { %>
+                    <tr>
+                        <td><%= user.name %></td>
+                        <td><%= user.age %></td>
+                        <td><%= user.email %></td>
+                    </tr>
+                <% }); %>
+            </table>
+        <% } else { %>
+            <p>No users found.</p>
+        <% } %>
+        
+        <!-- Escaping HTML -->
+        <p>Escaped: <%= '<script>alert("XSS")</script>' %></p>
+        <!-- Unescaped (dangerous!) -->
+        <p>Unescaped: <%- '<strong>Bold text</strong>' %></p>
+    </body>
+</html>
