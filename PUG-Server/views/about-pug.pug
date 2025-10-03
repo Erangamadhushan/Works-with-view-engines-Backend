@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title= title
+  body
+    h1 About #{company}
+    
+    //- Interpolation
+    p Welcome to our company, established in #{year}
+    
+    //- Attributes
+    a(href='/' class='btn btn-primary') Back to Home
+    
+    //- Multiple attributes
+    button(
+      type='submit'
+      class='btn'
+      disabled
+    ) Submit
+    
+    //- ID and Class shorthand
+    #content.container.main
+      p This div has id="content" and classes "container" and "main"
