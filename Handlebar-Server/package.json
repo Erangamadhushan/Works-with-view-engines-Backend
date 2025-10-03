@@ -1,9 +1,9 @@
 {
-  "name": "pug-server",
+  "name": "handlebar-server",
   "version": "1.0.0",
-  "main": "server.pug.js",
+  "main": "server-handlebars.js",
   "scripts": {
-    "start": "node server.pug.js",
+    "start": "node server-handlebars.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,6 +12,6 @@
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
-    "pug": "^3.0.3"
+    "express-handlebars": "^8.0.1"
   }
 }
